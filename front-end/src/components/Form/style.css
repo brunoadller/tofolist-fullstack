@@ -1,0 +1,32 @@
+.form-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.inputs-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.inputs-container input{
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.inputs-container button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #4F4F4F;
+    color: #fff;
+    font-size: 18px;
+    transition: all ease .5s;
+    cursor: pointer;
+}
+.inputs-container button:hover{
+    letter-spacing: 1px;
+}
