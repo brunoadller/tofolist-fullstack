@@ -5,14 +5,18 @@ const Table = () => {
     const [tasks, setTasks] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:4000/tarefas")
-        .then(data => data.json())
-        .then(res => {
-            setTasks(res)
-        }).catch(e => {
-          console.log("Erro na requisição: ", e)
-        })
-    },[tasks])
+      const fetchTasks = async  () => {
+        try {
+          const response = await fetch("http://localhost:4000/tarefas");
+          const data = await response.json();
+          setTasks(data);
+        } catch (e) {
+          console.log("Erro na requisição: ", e);
+        }
+      }
+    
+      fetchTasks()
+    },[])
   return (
     <div className='table-container'>
       <table>

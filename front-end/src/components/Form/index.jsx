@@ -13,9 +13,11 @@ const Form = () => {
     const {name, value} = event.target
     setValues({...values,[name]:value})
   }
+ 
   const handleClickSendTask = (event) => {
     event.preventDefault() 
     console.log("Valores:",values)
+   
     fetch('http://localhost:4000/novaTarefa', {
       method: 'POST',
       headers:{
@@ -28,7 +30,7 @@ const Form = () => {
       if(!response.ok){
         throw new Error('Erro de rede')
       }
-      return response.json()
+      
     })
     .then(data => {
       console.log('Dados enviados com sucesso ', data)
@@ -39,6 +41,7 @@ const Form = () => {
       descricao: "",
       responsavel:""
     })
+   
   }
   return (
     <div className='form-container'>
