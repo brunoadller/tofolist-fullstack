@@ -3,7 +3,7 @@ const database = require('../database/connection')
 class TaskController {
     novaTarefa(request, response){
         const {tarefa, descricao, responsavel} = request.body
-        console.log(tarefa, descricao, responsavel) 
+        console.log("valores:",tarefa, descricao, responsavel) 
 
         database.insert({tarefa, descricao, responsavel}).table('task')
         .then(data => {

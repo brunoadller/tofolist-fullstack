@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './style.css'
 
-const formValues = {
+const formValues ={
   tarefa: "",
   descricao:"",
   responsavel:""
@@ -15,23 +15,29 @@ const Form = () => {
   }
   const handleClickSendTask = (event) => {
     event.preventDefault() 
-    console.log(values)
+    console.log("Valores:",values)
     fetch('http://localhost:4000/novaTarefa', {
       method: 'POST',
       headers:{
-        'Content-Type': 'appication/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(values),
-
+      
     })
     .then(response => {
-      if(!response.okj){
+      if(!response.ok){
         throw new Error('Erro de rede')
       }
       return response.json()
     })
     .then(data => {
       console.log('Dados enviados com sucesso ', data)
+    })
+
+    setValues({
+      tarefa: "",
+      descricao: "",
+      responsavel:""
     })
   }
   return (
